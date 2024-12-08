@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pet Friendly</title>
+    <style>
+        body {
+            background-color: #ffbd59;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .slogan {
+            display: flex;
+            align-items: center;
+            font-size: 48px;
+            font-family: Arial, sans-serif;
+        }
+        .slogan .paw-icon {
+            font-size: 48px;
+            margin-left: 10px;
+        }
+        .cat-image {
+            position: absolute;
+            bottom: 0;
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="slogan">
+        Happy Pat
+        <span class="paw-icon">🐾</span>
+    </div>
+    <img class="cat-image" src="cat-cartoon.png" alt="Cartoon Cat">
+</body>
+</html>
+
+<style>
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+</style>
+<script>
+setTimeout(function() {
+    document.body.classList.add('fade-out');
+    setTimeout(function() {
+        window.location.href = "index(2).html";
+    }, 1000);
+}, 1000);
+</script>
