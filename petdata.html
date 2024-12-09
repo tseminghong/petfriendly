@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Data</title>
+    <style>
+        .header{
+            font-weight: bold;
+            font-size: 60px;
+            display: flex;
+            justify-content: center;
+        }
+        .tail{
+            background-color: white;
+            border-radius: 20px black;
+            padding-top: 40px;
+            padding-left: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .tail a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .tail a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Pet Data
+    </div>
+    <div class="content">
+        <p>total eat: <span id="totalEat">0</span></p>
+        <p>total water drink: <span id="totalWaterDrink">0</span></p>
+        <p>total movement: <span id="totalMovement">0</span></p>
+    </div>
+    <div class="link">
+        <p>useful link for our pet</p>
+        <a href="">cat</a>
+    </div>
+    <div class="tail">
+        <a href="">share out</a>
+        <br>
+        <a href="">Ai analysis</a>
+    </div>
+</body>
+</html>
+<script>
+    var petData = {
+        totalEat: 3,
+        totalWaterDrink: 6,
+        totalMovement: 0
+    };
+    document.getElementById('totalEat').textContent = petData.totalEat;
+    document.getElementById('totalWaterDrink').textContent = petData.totalWaterDrink;
+    document.getElementById('totalMovement').textContent = petData.totalMovement;
+</script>
