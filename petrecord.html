@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Reminder System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            position: relative;
+        }
+        .menu-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .reminder-form {
+            margin-bottom: 20px;
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 1000;
+            color: white;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .reminder-list {
+            margin-bottom: 20px;
+            display: block;
+        }
+        .reminder-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .reminder-item button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pet Reminder System</h1>
+    <button class="menu-button" onclick="toggleMenu()">Menu</button>
+    <div class="reminder-form">
+        <button class="close-button" onclick="toggleMenu()">X</button>
+        <h2>Add/Edit Reminder</h2>
+        <form id="reminderForm">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br><br>
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required><br><br>
+            <label for="phone">Vet Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            <label for="message">Reminder:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+            <button type="button" onclick="addReminder()">Add Reminder</button>
+            <button type="button" onclick="updateReminder()">Update Reminder</button>
+        </form>
+    </div>
+    <div class="reminder-list">
+        <h2>Reminders</h2>
+        <div id="reminderContainer"></div>
+    </div>
+
+    <script>
+        let reminders = [];
+        let editIndex = -1;
+
+        function toggleMenu() {
+            const form = document.querySelector('.reminder-form');
+            const isVisible = form.style.display === 'block';
+            form.style.display = isVisible ? 'none' : 'block';
+        }
+
+        function addReminder() {
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            if (editIndex === -1) {
+                reminders.push({ date, time, phone, message });
+            } else {
+                reminders[editIndex] = { date, time, phone, message };
+                editIndex = -1;
+            }
+
+            document.getElementById('reminderForm').reset();
+            renderReminders();
+        }
+
+        function editReminder(index) {
+            const reminder = reminders[index];
+            document.getElementById('date').value = reminder.date;
+            document.getElementById('time').value = reminder.time;
+            document.getElementById('phone').value = reminder.phone;
+            document.getElementById('message').value = reminder.message;
+            editIndex = index;
+            toggleMenu();
+        }
+
+        function deleteReminder(index) {
+            reminders.splice(index, 1);
+            renderReminders();
+        }
+
+        function renderReminders() {
+            const container = document.getElementById('reminderContainer');
+            container.innerHTML = '';
+            reminders.forEach((reminder, index) => {
+                const reminderItem = document.createElement('div');
+                reminderItem.className = 'reminder-item';
+                reminderItem.innerHTML = `
+                    <p><strong>Date:</strong> ${reminder.date}</p>
+                    <p><strong>Time:</strong> ${reminder.time}</p>
+                    <p><strong>Vet Phone Number:</strong> ${reminder.phone}</p>
+                    <p><strong>Reminder:</strong> ${reminder.message}</p>
+                    <button onclick="editReminder(${index})">Edit</button>
+                    <button onclick="deleteReminder(${index})">Delete</button>
+                `;
+                container.appendChild(reminderItem);
+            });
+        }
+    </script>
+</body>
+</html>
