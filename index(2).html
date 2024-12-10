@@ -71,23 +71,23 @@ body{
 <script>
 const menuButton = document.getElementById('menuButton');
 const sideMenu = document.getElementById('sideMenu');
-const petmap = document.getElementById('pet_map');
-const petdata = document.getElementById('Pet_data');
-const petrecord = document.getElementById('Pet_record');
-const feedback = document.getElementById('Feedback');
+const petmap = document.getElementsByClassName('pet_map')[0];
+const petdata = document.getElementsByClassName('Pet_data')[0];
+const petrecord = document.getElementsByClassName('Oet_record')[0];
+const feedback = document.getElementsByClassName('Feedback')[0];
 
 menuButton.addEventListener('click', () => {
     sideMenu.classList.toggle('open');
     menuButton.textContent = sideMenu.classList.contains('open') ? '✖' : '☰';
 });
 petmap.addEventListener('click', () => {
-    window.location.href = "https://tseminghong.github.io/petfriendly/petmap.html";
+    window.location.href = "petmap.html";
 });
 petdata.addEventListener('click', () => {
-    window.location.href = "https://tseminghong.github.io/petfriendly/petdata.html";
+    window.location.href = "petdata.html";
 });
 petrecord.addEventListener('click', () => {
-    window.location.href = "https://tseminghong.github.io/petfriendly/petrecord.html";
+    window.location.href = "petrecord.html";
 });
 feedback.addEventListener('click', () => {
     window.location.href = "feedback.html";
