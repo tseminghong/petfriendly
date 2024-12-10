@@ -57,7 +57,7 @@
 <body>
     <div class="container">
         <h1>Enter Your Pet Information</h1>
-        <form action="/submit" method="post">
+        <form id="petForm"></form>
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -80,7 +80,7 @@
         </form>
     </div>
     <script>
-        document.querySelector('form').addEventListener('submit', function(event) {
+        document.getElementById('petForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
             const formData = {
@@ -102,6 +102,7 @@
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
+                window.location.href = 'index(2).html';
             })
             .catch((error) => {
                 console.error('Error:', error);
