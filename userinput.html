@@ -83,7 +83,13 @@
         const submit = document.getElementById('submit');
         document.getElementById('petForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            if (name.value !== '' && petName.value !== '' && petCategory.value !== '' && petSpecies.value !== '' && petAge.value !== '' && country.value !== '') {
+            const name = document.getElementById('name').value;
+            const petName = document.getElementById('petName').value;
+            const petCategory = document.getElementById('petCategory').value;
+            const petSpecies = document.getElementById('petSpecies').value;
+            const petAge = document.getElementById('petAge').value;
+            const country = document.getElementById('country').value;
+            if (name !== '' && petName !== '' && petCategory !== '' && petSpecies !== '' && petAge !== '' && country !== '') {
                 window.location.href = 'index(2).html';
             }
         });
