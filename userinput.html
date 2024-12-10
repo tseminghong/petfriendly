@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Information Form</title>
+</head>
+<body>
+    <h1>Enter Your Pet Information</h1>
+    <form action="/submit" method="post">
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="petName">Pet Name:</label><br>
+        <input type="text" id="petName" name="petName" required><br><br>
+
+        <label for="petCategory">Pet Category:</label><br>
+        <input type="text" id="petCategory" name="petCategory" required><br><br>
+
+        <label for="petSpecies">Pet Species:</label><br>
+        <input type="text" id="petSpecies" name="petSpecies" required><br><br>
+
+        <label for="petAge">Pet Age:</label><br>
+        <input type="number" id="petAge" name="petAge" required><br><br>
+
+        <label for="country">Country:</label><br>
+        <input type="text" id="country" name="country" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = {
+            name: document.getElementById('name').value,
+            petName: document.getElementById('petName').value,
+            petCategory: document.getElementById('petCategory').value,
+            petSpecies: document.getElementById('petSpecies').value,
+            petAge: document.getElementById('petAge').value,
+            country: document.getElementById('country').value
+        };
+
+        fetch('/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
+</script>
