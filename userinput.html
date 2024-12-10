@@ -115,17 +115,17 @@
         const petSpecies = document.getElementById('petSpecies');
         const petAge = document.getElementById('petAge');
         const country = document.getElementById('country');
-        const sumbit = document.getElementById('submit');
+        const submit = document.getElementById('submit');
 
-        onclick.sumbit = function() {
-            if(name.value === '' || petName.value === '' || petCategory.value === '' || petSpecies.value === '' || petAge.value === '' || country.value === '') {
+        submit.addEventListener('click', function() {
+            if (name.value === '' || petName.value === '' || petCategory.value === '' || petSpecies.value === '' || petAge.value === '' || country.value === '') {
                 alert('Please fill in all fields');
             }
-            else{
-                alert('Form submitted successfully');
+            else {
+                form.submit();
                 window.location.href = 'index(2).html';
             }
-        }
+        });
     </script>
 </body>
 </html>
