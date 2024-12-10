@@ -7,9 +7,9 @@
     <ul>
         <br>
         <li><a href="#" class="pet_map">Pet Map</a></li>
-        <li><a href="#">Pet Data</a></li>
-        <li><a href="#">Pet Record</a></li>
-        <li><a href="#">Feedback</a></li>
+        <li><a href="#" class="Pet_data">Pet Data</a></li>
+        <li><a href="#" class="Oet_record">Pet Record</a></li>
+        <li><a href="#" class="Feedback">Feedback</a></li>
     </ul>
 </nav>
 
@@ -72,6 +72,9 @@ body{
 const menuButton = document.getElementById('menuButton');
 const sideMenu = document.getElementById('sideMenu');
 const petmap = document.getElementById('pet_map');
+const petdata = document.getElementById('Pet_data');
+const petrecord = document.getElementById('Pet_record');
+const feedback = document.getElementById('Feedback');
 
 menuButton.addEventListener('click', () => {
     sideMenu.classList.toggle('open');
@@ -79,5 +82,14 @@ menuButton.addEventListener('click', () => {
 });
 petmap.addEventListener('click', () => {
     window.location.href = "petmap.html";
+});
+petdata.addEventListener('click', () => {
+    window.location.href = "petdata.html";
+});
+petrecord.addEventListener('click', () => {
+    window.location.href = "petrecord.html";
+});
+feedback.addEventListener('click', () => {
+    window.location.href = "feedback.html";
 });
 </script>
