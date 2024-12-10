@@ -81,13 +81,9 @@
     </div>
     <script>
         const submit = document.getElementById('submit');
-
-        submit.addEventListener('click', function() {
-            if (name.value === '' || petName.value === '' || petCategory.value === '' || petSpecies.value === '' || petAge.value === '' || country.value === '') {
-                alert('Please fill in all fields');
-            }
-            else {
-                form.submit();
+        document.getElementById('petForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (name.value !== '' && petName.value !== '' && petCategory.value !== '' && petSpecies.value !== '' && petAge.value !== '' && country.value !== '') {
                 window.location.href = 'index(2).html';
             }
         });
