@@ -108,6 +108,24 @@
                 console.error('Error:', error);
             });
         });
+        const form = document.getElementById('petForm');
+        const name = document.getElementById('name');
+        const petName = document.getElementById('petName');
+        const petCategory = document.getElementById('petCategory');
+        const petSpecies = document.getElementById('petSpecies');
+        const petAge = document.getElementById('petAge');
+        const country = document.getElementById('country');
+        const sumbit = document.getElementById('submit');
+
+        onclick.sumbit = function() {
+            if(name.value === '' || petName.value === '' || petCategory.value === '' || petSpecies.value === '' || petAge.value === '' || country.value === '') {
+                alert('Please fill in all fields');
+            }
+            else{
+                alert('Form submitted successfully');
+                window.location.href = 'index(2).html';
+            }
+        }
     </script>
 </body>
 </html>
