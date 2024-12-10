@@ -4,90 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<header>
-    <h1 class="welcome-message">Pet map</h1>
-    <button class="menu-button" id="menuButton">☰</button>
-</header>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<body>
-    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Ckk0cbn3CuMDYz61XkBunP_bgPbwE4A&ehbc=2E312F" width="640" height="480"></iframe>
-</body>
-<nav class="side-menu" id="sideMenu">
-    <ul>
-        <br>
-        <li><a href="#">Pet Map</a></li>
-        <li><a href="#">Pet Data</a></li>
-        <li><a href="#">Pet Record</a></li>
-        <li><a href="#">Feedback</a></li>
-    </ul>
-</nav>
-</html>
-<style>
-header {
-    position: fixed;
-    z-index: 1;                                             
-    top: 0;
-    width: 100%;
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    justify-content: space-between;
-}
-.welcome-message {
-    font-size: 30px;
-    padding-right: 10px;
-    font-family: Arial, sans-serif;
-    padding-left: 80px;
-}
-.menu-button {
-    font-size: 30px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding-right: 30px;
-}
-.side-menu {
-    position: fixed;
-    top: 0;
-    right: -200px;
-    width: 180px;
-    height: 100%;
-    background-color: #fff;
-    transition: right 0.3s ease;
-}
-.side-menu ul {
-    list-style: none;
-    padding: 60px 10px;
-    margin: 0;
-}
-.side-menu li {
-    margin-bottom: 20px;
-}
-.side-menu a {
-    text-decoration: none;
-    color: #333;
-}
-.side-menu.open {
-    right: 0;
-}
-body{
-    background-color: #b6e2d3;
-}
-</style>
-<script>
-    const menuButton = document.getElementById('menuButton');
-    const sideMenu = document.getElementById('sideMenu');
-    
-    menuButton.addEventListener('click', () => {
-        sideMenu.classList.toggle('open');
-        menuButton.textContent = sideMenu.classList.contains('open') ? '✖' : '☰';
-    });
+    <style>
+        header {
+            position: fixed;
+            z-index: 1;                                             
+            top: 0;
+            width: 100%;
+            display: flex;
+            padding: 10px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .welcome-message {
+            font-size: 30px;
+            padding-right: 10px;
+            font-family: Arial, sans-serif;
+            padding-left: 80px;
+        }
+        .menu-button {
+            font-size: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding-right: 30px;
+        }
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -200px;
+            width: 180px;
+            height: 100%;
+            background-color: #fff;
+            transition: right 0.3s ease;
+        }
+        .side-menu ul {
+            list-style: none;
+            padding: 60px 10px;
+            margin: 0;
+        }
+        .side-menu li {
+            margin-bottom: 20px;
+        }
+        .side-menu a {
+            text-decoration: none;
+            color: #333;
+        }
+        .side-menu.open {
+            right: 0;
+        }
+        body {
+            background-color: #b6e2d3;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menuButton');
+            const sideMenu = document.getElementById('sideMenu');
+            const petdata = document.getElementById('petdata');
+            const petrecord = document.getElementById('petrecord');
+            const feedback = document.getElementById('feedback');
+            
+            menuButton.addEventListener('click', () => {
+                sideMenu.classList.toggle('open');
+                menuButton.textContent = sideMenu.classList.contains('open') ? '✖' : '☰';
+            });
+            petdata.addEventListener('click', () => {
+                window.location.href = 'petdata.html';
+            });
+            petrecord.addEventListener('click', () => {
+                window.location.href = 'petrecord.html';
+            });
+            feedback.addEventListener('click', () => {
+                window.location.href = 'feedback.html';
+            });
+        });
     </script>
+</head>
+<body>
+    <header>
+        <h1 class="welcome-message">Pet map</h1>
+        <button class="menu-button" id="menuButton">☰</button>
+    </header>
+    <br><br><br><br><br><br><br>
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Ckk0cbn3CuMDYz61XkBunP_bgPbwE4A&ehbc=2E312F" width="640" height="480"></iframe>
+    <nav class="side-menu" id="sideMenu">
+        <ul>
+            <br>
+            <li id="feedback"><a href="#">feedback</a></li>           
+            <li id="petrecord"><a href="#">pet reminder</a></li>        
+           <li id="petdata"><a href="#">Pet data <a></li> 
+        </ul>
+    </nav>
+</body>
+</html>
