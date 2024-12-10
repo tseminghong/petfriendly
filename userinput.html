@@ -80,41 +80,6 @@
         </form>
     </div>
     <script>
-        document.getElementById('petForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const formData = {
-                name: document.getElementById('name').value,
-                petName: document.getElementById('petName').value,
-                petCategory: document.getElementById('petCategory').value,
-                petSpecies: document.getElementById('petSpecies').value,
-                petAge: document.getElementById('petAge').value,
-                country: document.getElementById('country').value
-            };
-
-            fetch('/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                window.location.href = 'index(2).html';
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        });
-        const form = document.getElementById('petForm');
-        const name = document.getElementById('name');
-        const petName = document.getElementById('petName');
-        const petCategory = document.getElementById('petCategory');
-        const petSpecies = document.getElementById('petSpecies');
-        const petAge = document.getElementById('petAge');
-        const country = document.getElementById('country');
         const submit = document.getElementById('submit');
 
         submit.addEventListener('click', function() {
